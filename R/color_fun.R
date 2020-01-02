@@ -488,6 +488,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
                    lwd_brd = NULL,  # line width of box borders
                    grid = TRUE,     # show grid? 
                    title = NA,      # plot title? Using default title = NA constructs a default title
+                   labels = NULL,
                    ...              # additional arguments to plot.default().
 ) {
   
@@ -684,7 +685,7 @@ seecol <- function(pal = "unikn_all",  # which palette to output?
     
     pal_nm <- names(pal_tmp)  # get palette names.
     
-    text(x = 0, y = 1:length(pal_tmp), labels = rev(pal_nm), 
+    text(x = 0, y = 1:length(pal_tmp), labels = ifelse(labels!=NULL, labels, rev(pal_nm)), 
          cex = cex_lbl, pos = 2, xpd = TRUE,
          offset = 1  # 1 character.
     )
